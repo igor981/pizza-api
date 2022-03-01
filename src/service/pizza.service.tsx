@@ -4,16 +4,16 @@ const url: string = 'https://private-anon-56bfbf9706-pizzaapp.apiary-mock.com/re
 const orderUrl: string = 'https://private-anon-56bfbf9706-pizzaapp.apiary-mock.com/orders/'
 
 
-const getAllRestos = async () => {
+export const getAllRestos = async () => {
     try {
         const res = await axios.get(url)
-        return res
+        return res.data
     } catch (error) {
         return error
     }
 }
 
-const getRestoById = async (id: number) => {
+export const getRestoById = async (id: number) => {
     try {
         const res = await axios.post(url + id)
         return res
@@ -22,16 +22,16 @@ const getRestoById = async (id: number) => {
     }
 }
 
-const getRestoMenu = async (id: number) => {
+export const getRestoMenu = async (id: number) => {
     try {
-        const res = await axios.post(`https://private-anon-56bfbf9706-pizzaapp.apiary-mock.com/restaurants/${id}/menu?category=Pizza&orderBy=rank`)
-        return res
+        const res = await axios.get(`https://private-anon-56bfbf9706-pizzaapp.apiary-mock.com/restaurants/${id}/menu?category=Pizza&orderBy=rank`)
+        return res.data
     } catch (error) {
         return error
     }
 }
 
-const placeOrder = async (cart: object) => {
+export const placeOrder = async (cart: object) => {
     try {
         const res = await axios.post(orderUrl)
         return res
