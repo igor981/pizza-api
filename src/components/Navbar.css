@@ -1,31 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Lobster&display=swap');
 
 .navbar {
     position: fixed;
     padding: 0px;
     margin: 0;
-    background-color: #4447fa;
     width: 100%;
     height: 50px;
-    border-bottom: 1px solid rgb(212, 212, 212);
+    margin-bottom: 50px;
+}
+
+.navbar__links > a {
+    text-decoration: none;
+    color: white;
+    margin-left: 13px;
+}
+.navbar__links > a:hover {
+    color: rgb(207, 207, 207);
 }
 
 .navbar__title {
-    color: rgb(63, 51, 51);
-    margin: 0px;
-    background-color: white;
-    font-size: 20px;
-    width: 11vw;
+    color: #4447fa;
+    margin-left: 20px;
+    font-size: 39px;
     height: 100%;
     font-size: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Courgette', cursive;
+    font-family: 'Lobster', cursive;
+    text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
+}
+.navbar__buttons {
+    margin: 10px;
+    padding: 10px 15px;
+    min-width: 90px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #4447fa;
 }
 
+.navbar__buttons:hover {
+    opacity: 80%;
+}
+
+.navbar__cartbutton {
+    margin: 0px 10px;
+    background-color: #4447fa;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+
+}
+
+.navbar__cartbutton:hover {
+    opacity: 80%;
+}
+
+.navbar__links{
+display: flex;
+align-items: center;
+}
 
  svg {
-  width: 90px;
+     margin: 10px 0px 10px 10px;
+  width: 30px;
   height: 25px;
+}
+
+.cart-div{
+    display: flex;
+}
+
+.cart-counter {
+    margin: 10px 10px 10px 0px ;
 }

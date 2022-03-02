@@ -1,0 +1,39 @@
+
+
+.homepage {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1920' height='1080' preserveAspectRatio='none' viewBox='0 0 1920 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1125%26quot%3b)' fill='none'%3e%3cpath d='M 0%2c209 C 76.8%2c269.6 230.4%2c522.6 384%2c512 C 537.6%2c501.4 614.4%2c184.4 768%2c156 C 921.6%2c127.6 998.4%2c369.6 1152%2c370 C 1305.6%2c370.4 1382.4%2c159.6 1536%2c158 C 1689.6%2c156.4 1843.2%2c321.2 1920%2c362L1920 1080L0 1080z' fill='rgba(108%2c 110%2c 247%2c 1)'%3e%3c/path%3e%3cpath d='M 0%2c802 C 76.8%2c843 230.4%2c1011.2 384%2c1007 C 537.6%2c1002.8 614.4%2c784.4 768%2c781 C 921.6%2c777.6 998.4%2c1029.8 1152%2c990 C 1305.6%2c950.2 1382.4%2c582.8 1536%2c582 C 1689.6%2c581.2 1843.2%2c905.2 1920%2c986L1920 1080L0 1080z' fill='rgba(68%2c 71%2c 250%2c 1)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1125'%3e%3crect width='1920' height='1080' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");    background-repeat: no-repeat;
+    background-size: fill;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(58, 58, 58);
+}
+
+.homepage__content__title{
+    margin-left: 20vw;
+    padding: 20px;
+    font-size: 25px;
+    width: 310px;
+    text-align: center;
+    background: white;
+    border-radius: 40px;
+    border: 1px solid rgb(86, 122, 202);
+    transition: 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    
+}
+
+.homepage__content__title:hover{
+    padding: 22px;
+    width: 315px;
+    text-align: center;
+    background: white;
+    border-radius: 40px;
+    cursor: pointer;
+}

@@ -30,3 +30,8 @@ export interface Order {
     restuarantId: number
 
 }
+
+export interface Cart {
+    cartItems: [object],
+    restuarantId: number
+}

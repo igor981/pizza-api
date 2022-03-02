@@ -15,8 +15,8 @@ export const getAllRestos = async () => {
 
 export const getRestoById = async (id: number) => {
     try {
-        const res = await axios.post(url + id)
-        return res
+        const res = await axios.get('https://private-anon-0c47db5d78-pizzaapp.apiary-mock.com/restaurants/' + id)
+        return res.data
     } catch (error) {
         return error
     }

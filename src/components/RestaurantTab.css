@@ -1,45 +1,51 @@
-.restaurant{
-    width: 60vw;
-    margin: 6px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border: 0.5px solid rgba(0, 0, 0, 0.294);
-}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
-.restaurant__info{
+.card__info{
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    align-items:baseline;
     min-height: 70px;
+    margin-left: 10px;
+
 }
 
-.restaurant__info > p {
-    font-size: 13px;
+.card__info > p {
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+
 }
 
-.restaurant__menu > ul {
-    padding: 0px;
-}
 
-.restaurant__imagecontainer{
-    border-top-left-radius: 5px;
-    margin: 0px;
-    height: 80px;
-    width: 120px;
+
+.card__imagecontainer{
+    background-color: red;
     overflow: hidden;
-    margin-right: 20px;
+    border-bottom: 1px solid rgb(168, 168, 168);
 }
 .restaurant__image{
-    height: 100px;
-    object-fit: contain;
+    width: 100%;
 }
 
-.restaurant__container {
-    display: flex;
+
+.card {
+    width: 300px;
+    height: 290px;
+    margin: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;}
+
+.card:hover {
+    transition: 0.3s;
+    width: 305px;
+    height: 295px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -2px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.menu__item {
-    display: flex;
-    border: 0.5px solid rgba(0, 0, 0, 0.239);
-    height: 50px;
+.resto-title {
+    color: rgba(0, 0, 0, 0.774);
+
+    margin-top: 20px;
+    margin-bottom: -2px;
+    font-family: 'Lato', sans-serif;
 }
