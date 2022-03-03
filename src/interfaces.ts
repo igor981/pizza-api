@@ -26,12 +26,18 @@ export interface Order {
     orderedAt: Date,
     estimatedDelivery: Date,
     status: string,
-    cart: [Object],
+    cart: object[],
     restuarantId: number
 
 }
 
 export interface Cart {
-    cartItems: [object],
+    cartItems?:  Array<CartItemIf>;
     restuarantId: number
+}
+
+
+export interface CartItemIf {
+    menuItemId: number,
+    quantity: number
 }

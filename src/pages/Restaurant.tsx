@@ -3,16 +3,24 @@ import './Restaurant.css'
 import { useParams } from 'react-router-dom'
 import { getRestoMenu, getRestoById} from '../service/pizza.service'
 import { Restaurant as RestaurantIF} from '../interfaces'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../redux/actions/cart.action'
+import { useSelector } from 'react-redux'
+
 
 const Restaurant = () => {
-  type QuizParams = {
+
+  const cart = useSelector(store => store)
+  type RestoParam = {
     id: string;
   };
+
+  const  dispatch = useDispatch()
 
   const [menu, setMenu] = useState<any[]>([])  
   const [resto, setResto] = useState<RestaurantIF>()  
 
-  const { id } = useParams<QuizParams>();
+  const { id } = useParams<RestoParam>();
 
   let everyOther = false;
   const getMenu = async (id: number) => {
@@ -20,6 +28,17 @@ const Restaurant = () => {
     const res = await getRestoById(id)
     await setMenu(resMenu)  
     await setResto(res)
+  }
+
+  const handleAddedItem = (itemId: number) => {    
+    const menuItem = {
+      item: {
+        id: itemId,
+        quantity: 1,
+      },
+      restoId: id
+    }
+    dispatch(addToCart(menuItem))
   }
 
   useEffect(() => {
@@ -52,6 +71,7 @@ const Restaurant = () => {
       <ul>
           {menu && menu.length > 0 ? 
             menu.map((item, index) => {
+              
               everyOther = !everyOther
               let classBool = everyOther ? 'menu__item gray' : 'menu__item'
               return (
@@ -92,7 +112,7 @@ const Restaurant = () => {
                   </div>
                   <div className="item-button">
                     <p>{item.price}kr</p>
-                    <span className="add-to-cartBtn">
+                    <span className="add-to-cartBtn" onClick={() => handleAddedItem(item.id)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"

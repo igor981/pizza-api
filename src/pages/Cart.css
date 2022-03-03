@@ -1,0 +1,11 @@
+.cart-title {
+    text-align: center;
+    margin: 10px;
+}
+
+.title-underline {
+    margin: 0 auto;
+    width: 80%;
+    height: 1px;
+    background-color: rgb(156, 156, 156);
+}

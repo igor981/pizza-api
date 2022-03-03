@@ -140,3 +140,24 @@ border-bottom: 1px solid rgba(138, 138, 138, 0.609);
     font-size: 11px;
     margin: 2px;
 }
+
+::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(223, 20, 20); 
+    height: 80%;
+
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(102, 26, 173); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(91, 231, 11); 
+  }

@@ -7,8 +7,10 @@ let reducer = combineReducers({
     cart: cartReducer,
 })
 
+
+
 const store = createStore(
-    reducer, 
+    reducer,
     composeWithDevTools(applyMiddleware())
 );
 
