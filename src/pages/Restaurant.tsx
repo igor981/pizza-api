@@ -5,32 +5,31 @@ import { getRestoMenu, getRestoById} from '../service/pizza.service'
 import { Restaurant as RestaurantIF} from '../interfaces'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../redux/actions/cart.action'
+import { newMenu } from '../redux/actions/resto.action'
 import { useSelector } from 'react-redux'
 
 
 const Restaurant = () => {
-
-  const cart = useSelector(store => store)
   type RestoParam = {
     id: string;
   };
 
   const  dispatch = useDispatch()
 
-  const [menu, setMenu] = useState<any[]>([])  
-  const [resto, setResto] = useState<RestaurantIF>()  
-
+  const [menu, setMenu] = useState<any[]>([])  ;
+  const [resto, setResto] = useState<RestaurantIF>()  ;
   const { id } = useParams<RestoParam>();
 
   let everyOther = false;
   const getMenu = async (id: number) => {
-    const resMenu = await getRestoMenu(id)
-    const res = await getRestoById(id)
-    await setMenu(resMenu)  
-    await setResto(res)
-  }
+    const resMenu = await getRestoMenu(id);
+    const res = await getRestoById(id);
+    setMenu(resMenu);
+    setResto(res);
+  };
 
-  const handleAddedItem = (itemId: number) => {    
+  const handleAddedItem = (itemId: number) => {  
+    
     const menuItem = {
       item: {
         id: itemId,
@@ -38,7 +37,10 @@ const Restaurant = () => {
       },
       restoId: id
     }
+    dispatch(newMenu(menu))
     dispatch(addToCart(menuItem))
+    
+
   }
 
   useEffect(() => {
@@ -56,7 +58,7 @@ const Restaurant = () => {
         <div className='info__picture'>
         <img
           className="restaurant__image image__page"
-          src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
+          src="/pizza.png"
           alt="pizza-image"
         />
         </div>
@@ -68,6 +70,7 @@ const Restaurant = () => {
         </div>
       </div>
       <div className='restaurant__content__menu'>
+        
       <ul>
           {menu && menu.length > 0 ? 
             menu.map((item, index) => {

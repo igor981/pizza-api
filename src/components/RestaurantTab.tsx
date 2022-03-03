@@ -21,7 +21,7 @@ const RestaurantTab = (info: any) => {
       <div className="card__imagecontainer">
         <img
           className="restaurant__image"
-          src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
+          src="/pizza.png"
           alt="pizza-image"
         />
       </div>

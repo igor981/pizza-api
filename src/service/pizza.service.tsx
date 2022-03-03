@@ -31,16 +31,16 @@ export const getRestoMenu = async (id: number) => {
     }
 }
 
-export const placeOrder = async (cart: object) => {
+export const placeOrder = async (cart: string) => {
     try {
-        const res = await axios.post(orderUrl)
+        const res = await axios.post('https://private-anon-3b7493944a-pizzaapp.apiary-mock.com/orders/', cart)
         return res
     } catch (error) {
         return error
     }
 }
 
-const readOrder = async (id: number) => {
+export const readOrder = async (id: number) => {
     try {
         const res = await axios.post(orderUrl + id)
         return res;

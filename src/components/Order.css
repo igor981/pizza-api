@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+.order__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 200;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+}
+
+.order-button {
+    background-color: rgb(236, 164, 30);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.order-button>p{
+    color: white;
+    margin: 0px;
+}
+
+.order__nav__button {
+    border-radius: 10px;
+    border: none;
+    background-color: red;
+}
+
+.order-div.show {
+    transform: translateY(0);
+}
+.order-div{
+    transform: translateY(-120%);
+    transition: all 0.3s ease-out;
+    margin: 60px;
+   padding: 30px;
+   position: absolute;
+   width: 230px;
+   border: 1px solid black;
+   border-radius: 10px;
+   background-color: rgb(255, 255, 255);
+   display:  flex;
+   flex-direction: column;
+
+}
