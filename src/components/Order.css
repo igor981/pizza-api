@@ -22,9 +22,17 @@
 }
 
 .order__nav__button {
-    border-radius: 10px;
-    border: none;
-    background-color: red;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgba(88, 31, 31, 0.397);
+    background-color: rgb(245, 65, 65);;
+    font-weight: 600;
+    height: 40px;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+.order__nav__button:hover {
+    opacity: 90%;
 }
 
 .order-div.show {
@@ -37,7 +45,7 @@
    padding: 30px;
    position: absolute;
    width: 230px;
-   border: 1px solid black;
+   border: 1px solid rgb(218, 218, 218);
    border-radius: 10px;
    background-color: rgb(255, 255, 255);
    display:  flex;

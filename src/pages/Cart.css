@@ -21,10 +21,17 @@
     justify-content: center;
     align-items: center;
 }
+.cartdiv__lower__price {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
 .cartdiv__upper {
     background-color: white;
     height: 150px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgba(107, 107, 107, 0.335);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,10 +39,12 @@
 }
 
 .cartdiv__lower {
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(248, 248, 248);
     height: 100%;
     display: flex;
     flex-direction: column;
+    border-bottom-left-radius: 20px ;
+    border-bottom-right-radius: 20px ;
 }
 
 .deletebutton {
@@ -95,7 +104,5 @@
 }
 
 .cart-button:hover {
-    transition: 0.3s;
-    width: 132px;
-    height: 36px;
+    opacity: 90%;
 }

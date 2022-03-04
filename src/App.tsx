@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Home from './pages/Home';
 import Restaurants from './pages/Restaurants';
@@ -15,7 +16,7 @@ function App() {
       <main>
       <div className='content'>
       <Routes>
-         <Route  path="/" element={<Home />} /> 
+         <Route  path="/*" element={<Home />} /> 
          <Route  path="/restaurants" element={<Restaurants/>} /> 
          <Route  path="/restaurant/:id" element={<Restaurant />} /> 
          <Route  path="/cart" element={<Cart />} /> 

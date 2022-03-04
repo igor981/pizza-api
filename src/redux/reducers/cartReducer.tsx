@@ -1,7 +1,9 @@
+import { CartItemIf } from '../../interfaces';
 import * as actionTypes from '../constants/cartConstant'
+import { ActionIf } from '../../interfaces';
 
 const stored = localStorage.getItem('pizza-cart')
-let emptyCart =  {
+const emptyCart =  {
     cartItems: [],
     order: {},
     restuarantId: 0
@@ -11,11 +13,11 @@ const initialState = stored ? JSON.parse(stored) : emptyCart;
 
 
 
-export const cartReducer = ( state = initialState, action) => {
+export const cartReducer = ( state = initialState, action: ActionIf) => {
     switch (action.type) {
       case actionTypes.ADD_TO_CART: {
         const objIndex = state.cartItems.findIndex(
-          (obj) => obj.id === action.payload.item.id
+          (cartItem: CartItemIf) => cartItem.id === action.payload.item.id
         );
 
         if (objIndex !== -1) {
@@ -34,15 +36,15 @@ export const cartReducer = ( state = initialState, action) => {
         return newCart;
       }
 
-      case actionTypes.REMOVE_FROM_CART:
+      case actionTypes.REMOVE_FROM_CART: {
         const objIndex = state.cartItems.findIndex(
-          (obj) => obj.id === action.payload
+         ( cartItem: CartItemIf) => cartItem.id === action.payload
         );
 
         if (objIndex !== -1) {
-          const filteredCart = state.cartItems.filter((x) => {
-            if (x.id !== action.payload) {
-              return x;
+          const filteredCart = state.cartItems.filter((cartItem: CartItemIf) => {
+            if (cartItem.id !== action.payload) {
+              return cartItem;
             }
           });
           const newState = {
@@ -52,10 +54,12 @@ export const cartReducer = ( state = initialState, action) => {
           localStorage.setItem("pizza-cart", JSON.stringify(newState));
           return newState;
         }
+        return state
+      }
 
       case actionTypes.CHANGE_QTY: {
         const objIndex = state.cartItems.findIndex(
-          (obj) => obj.id === action.payload.id
+          (cartItem: CartItemIf) => cartItem.id === action.payload.id
         );
         if (objIndex !== -1) {
           state.cartItems[objIndex].quantity = parseInt(action.payload.qty);
@@ -95,7 +99,9 @@ export const cartReducer = ( state = initialState, action) => {
 
         return emptyOrder;
       }
-      default:
+      default:{
+
         return state;
+      }
     }
 }

@@ -1,30 +1,20 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Cart } from '../interfaces';
-import { addToCart } from '../redux/actions/cart.action';
+import { CartItemIf, RootReducerIf} from '../interfaces';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './Navbar.css'
 import Order from './Order';
-const Navbar = () => {
-  const store: any = useSelector(store => store);
 
+const Navbar = () => {
+  const cart = useSelector((store: RootReducerIf) => store.cart);
 
   const getCartCount = () => {
-    return store.cart.cartItems.reduce((quantity: number, item: any) => quantity + item.quantity, 0)
+    return cart.cartItems.reduce((quantity: number, item: CartItemIf) => quantity + item.quantity, 0)
   }
 
-  const show = store.cart.order.orderId !== undefined ? true : false
-  
+  const show = cart.order.orderId !== undefined ? true : false
 
-  useEffect(() => {
-   console.log(store.cart.order.orderId, 'undefined?');
-   
-  }, [])
-  
-
-
-  
   return (
     <nav className='navbar'>
         <h2 className='navbar__title'>The Pizza Place</h2>
@@ -32,8 +22,8 @@ const Navbar = () => {
           {show === true ? 
           <Order /> : null
           }
-        <Link className='navbar__buttons' to={'/'}>Home</Link>
-        <Link className='navbar__buttons' to={'/restaurants'}>Restaurants</Link>
+        <Link className='navbar__buttons' to={'/'}>Hem</Link>
+        <Link className='navbar__buttons' to={'/restaurants'}>Restauranger</Link>
         <Link className='navbar__cartbutton' to={'/cart'}>
           <div className='cart-div'>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-basket icon" viewBox="0 0 16 16">

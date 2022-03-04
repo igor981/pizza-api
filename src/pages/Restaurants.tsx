@@ -1,10 +1,7 @@
 import React, {useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { getAllRestos } from '../service/pizza.service';
-import { GeoLocation, Restaurant } from '../interfaces';
+import { GeoLocation, Restaurant, RestaurantUpdate, GeoPosition} from '../interfaces';
 import { getDistance } from 'geolib';
-import Navbar from '../components/Navbar'
-import axios, {AxiosResponse} from 'axios';
 import RestaurantTab from '../components/RestaurantTab';
 import './Restaurants.css'
 
@@ -16,7 +13,7 @@ const Restaurants = () => {
 const [restos, setRestos] = useState<Restaurant[]>()
 
 const getCurrentPosition = async () => {
-await navigator.geolocation.getCurrentPosition( position => {
+await navigator.geolocation.getCurrentPosition( (position: GeoPosition) => {  
   setGeoLocation({
     latitude: position.coords.latitude, 
     longitude: position.coords.longitude
@@ -26,14 +23,14 @@ await navigator.geolocation.getCurrentPosition( position => {
 
 const getRestos = async () => {
 const res = await getAllRestos()
-res.map((item: any) => {
-  const storeDistance: any = {
+const restoUpdate = res.map((item: Restaurant) => {
+  const storeDistance: GeoLocation = {
     latitude: item.latitude,
     longitude: item.longitude
   }
   item.distance = getDistance(geoLocation, storeDistance, 1000) / 10
 })
-res.sort((a:any , b:any) => a.distance - b.distance)
+restoUpdate.sort((a:RestaurantUpdate , b:RestaurantUpdate) => a.distance - b.distance)
 await setRestos(res)
 }
 
@@ -50,7 +47,7 @@ getCurrentPosition().then(() => getRestos())
         <div className='resto-list__underline'></div>
           <div className='resto-cards'>
             {restos && restos.length > 0 ? 
-              restos.map( (item: any, index) =>  <RestaurantTab key={index}  info={item}/> ): null}
+              restos.map( (item: RestaurantUpdate, index) =>  <RestaurantTab key={index}  info={item}/> ): null}
           </div>
 
         </div>

@@ -1,36 +1,26 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import moment from 'moment'
 import { clearOrder } from '../redux/actions/cart.action'
 import './Navbar.css'
 import './Order.css'
+import { RootReducerIf } from '../interfaces'
 
 const Order = () => {
 
-  const store = useSelector(store => store)
+  const store = useSelector( (store: RootReducerIf) => store)
   const [clicked, setClicked] = useState(false)
-
-
   const dispatch = useDispatch()
-
-
   const orderClass = ['order-div']
-  
-
   if (clicked){
       orderClass.push('show')
   }
 
+  const handleClickClear = () => {
+    dispatch(clearOrder())
+  }
 
-    const handleClickClear = () => {
-      dispatch(clearOrder())
-    }
 
-
-    useEffect(() => {
-      console.log(store.cart.order.orderId);
-    }, [])
-    
   return (
       <div className='order__nav'>
           <div className='navbar__buttons order-button'

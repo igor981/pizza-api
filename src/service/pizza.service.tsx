@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const url: string = 'https://private-anon-56bfbf9706-pizzaapp.apiary-mock.com/restaurants/'
-const orderUrl: string = 'https://private-anon-56bfbf9706-pizzaapp.apiary-mock.com/orders/'
+const url = 'https://private-anon-56bfbf9706-pizzaapp.apiary-mock.com/restaurants/'
+const orderUrl = 'https://private-anon-56bfbf9706-pizzaapp.apiary-mock.com/orders/'
 
 
 export const getAllRestos = async () => {

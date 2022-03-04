@@ -5,7 +5,7 @@ export const addToCart = (item: object) => {
     }
 }
 
-export const deleteFromCart = (item: object) => {
+export const deleteFromCart = (item: number) => {
     return {
         type: 'REMOVE_FROM_CART',
         payload: item
@@ -28,7 +28,7 @@ export const placeOrder = (item: object) => {
         payload: item
     }
 }
-export const clearOrder = (item: object) => {
+export const clearOrder = () => {
     return {
         type: 'CLEAR_ORDER'
     }

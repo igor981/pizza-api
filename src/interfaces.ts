@@ -9,15 +9,30 @@ export interface Restaurant {
     address1: string,
     address2: string,
     latitude: number,
-    longitude: number
+    longitude: number,
+    distance: number
+}
+export interface RestaurantUpdate {
+    id: number,
+    name: string,
+    address1: string,
+    address2: string,
+    latitude: number,
+    longitude: number,
+    distance: number
 }
 export interface MenuItem {
     id: number,
     category: string,
     name: string,
-    topping: [string],
+    topping: string[],
     price: number,
     rank: number
+}
+export type MenuIf= MenuItem[]
+
+export interface GeoPosition {
+    coords: any
 }
 
 export interface Order {
@@ -28,7 +43,12 @@ export interface Order {
     status: string,
     cart: object[],
     restuarantId: number
-
+}
+export interface OrderProp {
+    classBool: string,
+    index: number,
+    order: CartItemIf,
+    priceCount: any 
 }
 
 export interface Cart {
@@ -38,6 +58,18 @@ export interface Cart {
 
 
 export interface CartItemIf {
-    menuItemId: number,
-    quantity: number
+    id: number,
+    quantity: number,
+    price: number
+}
+
+export interface ActionIf {
+    type: string,
+    payload?: any,
+}
+
+
+export interface RootReducerIf {
+    cart: any,
+    resto: any
 }

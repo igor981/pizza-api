@@ -1,12 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import  React, {useState, useEffect} from 'react'
 import './Restaurant.css'
 import { useParams } from 'react-router-dom'
 import { getRestoMenu, getRestoById} from '../service/pizza.service'
-import { Restaurant as RestaurantIF} from '../interfaces'
+import { MenuIf, MenuItem, Restaurant as RestaurantIF} from '../interfaces'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../redux/actions/cart.action'
 import { newMenu } from '../redux/actions/resto.action'
-import { useSelector } from 'react-redux'
 
 
 const Restaurant = () => {
@@ -16,8 +15,8 @@ const Restaurant = () => {
 
   const  dispatch = useDispatch()
 
-  const [menu, setMenu] = useState<any[]>([])  ;
-  const [resto, setResto] = useState<RestaurantIF>()  ;
+  const [menu, setMenu] = useState<MenuIf>([]);
+  const [resto, setResto] = useState<RestaurantIF>();
   const { id } = useParams<RestoParam>();
 
   let everyOther = false;
@@ -28,26 +27,22 @@ const Restaurant = () => {
     setResto(res);
   };
 
-  const handleAddedItem = (itemId: number) => {  
-    
+  const handleAddedItem = (itemId: number, price: number) => {  
     const menuItem = {
       item: {
         id: itemId,
         quantity: 1,
+        price: price
       },
       restoId: id
     }
     dispatch(newMenu(menu))
     dispatch(addToCart(menuItem))
-    
-
   }
 
   useEffect(() => {
     const parsedId = Number(id)
     getMenu(parsedId)
-     
-    
   }, [])
 
 
@@ -73,17 +68,17 @@ const Restaurant = () => {
         
       <ul>
           {menu && menu.length > 0 ? 
-            menu.map((item, index) => {
-              
+          
+          menu.map((item: MenuItem, index: number) => {
               everyOther = !everyOther
-              let classBool = everyOther ? 'menu__item gray' : 'menu__item'
+              const classBool = everyOther ? 'menu__item gray' : 'menu__item'
               return (
                 <li key={index} className={classBool}>
                   <div className="item-info">
                     <p className="item-info__p">{item.category}</p>
                     <p className="item-info__p">{item.name}</p>
                     {item.topping && item.topping.length > 0
-                      ? item.topping.map((topping: any, index: number) => {
+                      ? item.topping.map((topping: string, index: number) => {
                           if (index === 0) {
                             return (
                               <p key={index} className="item-info__topping">
@@ -115,7 +110,7 @@ const Restaurant = () => {
                   </div>
                   <div className="item-button">
                     <p>{item.price}kr</p>
-                    <span className="add-to-cartBtn" onClick={() => handleAddedItem(item.id)}>
+                    <span className="add-to-cartBtn" onClick={() => handleAddedItem(item.id, item.price)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
