@@ -36,7 +36,7 @@ const Order = () => {
             <p><b>Pris:</b> {store.cart.order.totalPrice}kr</p>
             <p><b>Tid beställt:</b>{moment(store.cart.order.orderedAt).format('MMMM Do YYYY, h:mm:ss a')}</p>
             <p><b>Order id:</b>{store.cart.order.orderId}</p>
-            <button className='order__nav__button'onClick={() => handleClickClear()}>Clear order</button>
+            <button className='order__nav__button'onClick={() => handleClickClear()}>Rensa order</button>
           </div>
           
         

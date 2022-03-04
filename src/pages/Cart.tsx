@@ -85,8 +85,8 @@ const Cart = () => {
       }
       { userCart && userCart.cartItems.length > 0 ?
       <div className='cartdiv__buttons'>
-        <button className='cart-button buy'  onClick={() => handleClick()}>Order</button>
-        <button className='cart-button empty' onClick={() => handleEmptyCart()}>Empty the cart</button>
+        <button className='cart-button buy'  onClick={() => handleClick()}>Beställ</button>
+        <button className='cart-button empty' onClick={() => handleEmptyCart()}>Töm kassan</button>
       </div>
       
         : null
