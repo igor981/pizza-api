@@ -16,7 +16,7 @@ const Navbar = () => {
   const show = cart.order.orderId !== undefined ? true : false
 
   return (
-    <nav className='navbar'>
+    <nav className='navbar' data-testid='navbar-1'>
         <h2 className='navbar__title'>The Pizza Place</h2>
         <div className='navbar__links'>
           {show === true ? 
