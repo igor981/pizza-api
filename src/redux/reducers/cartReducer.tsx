@@ -69,10 +69,17 @@ export const cartReducer = ( state = initialState, action: ActionIf) => {
           (cartItem: CartItemIf) => cartItem.id === action.payload.id
         );
         if (objIndex !== -1) {
-          state.cartItems[objIndex].quantity = parseInt(action.payload.qty);
-          const updatedCart = state;
-          localStorage.setItem("pizza-cart", JSON.stringify(updatedCart));
-          return updatedCart;
+          const updatedItem = state.cartItems[objIndex]
+          updatedItem.quantity = action.payload.qty;
+          state.cartItems.splice(objIndex, 1)
+          const newCart = {
+            ...state,
+            cartItems: [...state.cartItems, updatedItem],
+            restuarantId: action.payload.restoId,
+          };
+          localStorage.setItem("pizza-cart", JSON.stringify(newCart));
+          return newCart;
+
         }
 
         return state;
