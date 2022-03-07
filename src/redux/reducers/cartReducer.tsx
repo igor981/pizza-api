@@ -21,19 +21,26 @@ export const cartReducer = ( state = initialState, action: ActionIf) => {
         );
 
         if (objIndex !== -1) {
-          state.cartItems[objIndex].quantity += 1;
-          const newCart = state;
+          const updatedItem = state.cartItems[objIndex]
+          updatedItem.quantity += 1;
+          state.cartItems.splice(objIndex, 1)
+          const newCart = {
+            ...state,
+            cartItems: [...state.cartItems, updatedItem],
+            restuarantId: action.payload.restoId,
+          };
+          localStorage.setItem("pizza-cart", JSON.stringify(newCart));
+          return newCart;
+        } else {
+
+          const newCart = {
+            ...state,
+            cartItems: [...state.cartItems, action.payload.item],
+            restuarantId: action.payload.restoId,
+          };
           localStorage.setItem("pizza-cart", JSON.stringify(newCart));
           return newCart;
         }
-
-        const newCart = {
-          ...state,
-          cartItems: [...state.cartItems, action.payload.item],
-          restuarantId: action.payload.restoId,
-        };
-        localStorage.setItem("pizza-cart", JSON.stringify(newCart));
-        return newCart;
       }
 
       case actionTypes.REMOVE_FROM_CART: {
