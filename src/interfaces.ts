@@ -12,6 +12,20 @@ export interface Restaurant {
     longitude: number,
     distance: number
 }
+export interface Props {
+    index: number,
+    classBool: string,
+    item: MenuItem,
+    restoId?: string,
+    menu: MenuIf,
+}
+
+
+export interface Info {
+    id: number,
+    distance: number,
+    name: string
+}
 export interface RestaurantUpdate {
     id: number,
     name: string,

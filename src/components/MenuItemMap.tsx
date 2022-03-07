@@ -1,13 +1,14 @@
-import  React, {useEffect} from 'react'
+import  React from 'react'
 import '../pages/Restaurant.css'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../redux/actions/cart.action'
 import { newMenu } from '../redux/actions/resto.action'
+import { Props } from '../interfaces'
 
 
-const MenuItemMap = (props: any) => {
+const MenuItemMap = (props: Props) => {
 
-  const {index, classBool, item, restoId, menu} = props.props
+  const {index, classBool, item, restoId, menu} = props
     const dispatch = useDispatch()
 
     const handleAddedItem = (itemId: number, price: number) => {  
@@ -22,12 +23,6 @@ const MenuItemMap = (props: any) => {
         dispatch(addToCart(menuItem))
         dispatch(newMenu(menu))
       }
-
-      useEffect(() => {
-        console.log(item);
-        
-      }, [])
-      
 
     return (
      <li key={index} className={classBool}>

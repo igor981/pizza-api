@@ -3,17 +3,14 @@ import './Restaurant.css'
 import { useParams } from 'react-router-dom'
 import { getRestoMenu, getRestoById} from '../service/pizza.service'
 import { MenuIf, MenuItem, Restaurant as RestaurantIF} from '../interfaces'
-import { useDispatch } from 'react-redux'
-import { addToCart } from '../redux/actions/cart.action'
-import { newMenu } from '../redux/actions/resto.action'
+
 import MenuItemMap from '../components/MenuItemMap'
+
 
 const Restaurant = () => {
   type RestoParam = {
     id: string;
   };
-
-  const  dispatch = useDispatch()
 
   const [menu, setMenu] = useState<MenuIf>([]);
   const [resto, setResto] = useState<RestaurantIF>();
@@ -26,19 +23,6 @@ const Restaurant = () => {
     setMenu(resMenu);
     setResto(res);
   };
-
-  const handleAddedItem = (itemId: number, price: number) => {  
-    const menuItem = {
-      item: {
-        id: itemId,
-        quantity: 1,
-        price: price
-      },
-      restoId: id
-    }
-    dispatch(newMenu(menu))
-    dispatch(addToCart(menuItem))
-  }
 
   useEffect(() => {
     const parsedId = Number(id)
@@ -80,7 +64,7 @@ const Restaurant = () => {
               menu: menu,
             };
 
-            return <MenuItemMap key={index} props={props} />;
+            return <MenuItemMap key={index} {...props} />;
           })
           : <></>}
         </ul>

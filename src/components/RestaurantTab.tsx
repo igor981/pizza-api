@@ -1,12 +1,15 @@
 import React from 'react';
 import './RestaurantTab.css'
 import { useNavigate } from 'react-router-dom'
+import {  RestaurantUpdate } from '../interfaces';
 
-const RestaurantTab = (info: any) => {
-  const {name, id, distance} = info['info']
+const RestaurantTab = (item: RestaurantUpdate) => {
+  const {name, id, distance} = item
   const navigate = useNavigate(); 
  
   const handleClick = () => {
+    console.log(item);
+    
     navigate(`/restaurant/${id}`)
 
   }

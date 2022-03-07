@@ -47,7 +47,7 @@ getCurrentPosition().then(() => getRestos())
         <div className='resto-list__underline'></div>
           <div className='resto-cards'>
             {restos && restos.length > 0 ? 
-              restos.map( (item: RestaurantUpdate, index) =>  <RestaurantTab key={index}  info={item}/> ): null}
+              restos.map( (item: RestaurantUpdate, index) =>  <RestaurantTab key={index}  {...item}/> ): null}
           </div>
 
         </div>
