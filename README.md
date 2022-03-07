@@ -81,3 +81,19 @@ Empty the cart button just clears all the items from the cart store.
 When there is an order in the state, the order button gets rendered on the navbar. When clicked, a bigger div slides down and displays set of information about the order such as the status, time of arrival, price, time of order and order id.
 
 There is also a remove order button that removes the order from the state.
+
+
+
+
+#### Future implementations
+Features needed for a production ready pizza app.
+
+* Database for users, orders and products.
+* Payment.
+* If you have products in your cart from a restaurant, and you try to add products from another restaurant, you should get a warning message saying that you can't add products from seperate restaurants and give you the ability to clear your cart if you decide to switch restaurants.
+* Add a connection poll when you have an active order so the state changes on the order status (pending, baking, en-route, delivired) and notifications when status changes.
+* User authentication that includes past orders, pre-saved delivery options, favourite restaurants/products. Possibility to leave reviews.
+
+
+#### My conclusion of this project.
+This project was very fun and challenging. I've had past experiences of TypeScript but combining it with react-redux was a learning curve that I had fun climbing. The use of interfaces and assigning datatypes made it easier to see the big picture for the project and made the code alot more robust. I can for sure say that typescript will be a tool used for most of my future projects.
