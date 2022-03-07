@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import moment from 'moment'
 import { clearOrder } from '../redux/actions/cart.action'
 import './Navbar.css'
-import './Order.css'
 import { RootReducerIf } from '../interfaces'
 
 const Order = () => {
@@ -22,9 +21,10 @@ const Order = () => {
 
 
   return (
-      <div className='order__nav'>
+      <div className='order__nav'
+      onClick={() => setClicked(!clicked)}>
           <div className='navbar__buttons order-button'
-          onClick={() => setClicked(!clicked)}
+          
           >
              <p>Din order</p>
           </div>

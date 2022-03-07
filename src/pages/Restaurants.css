@@ -14,10 +14,6 @@
 
 }
 
-
-
-
-
 .resto-list__undertitle{
     margin: 20px;
     margin-bottom: 0px;
@@ -25,15 +21,22 @@
 }
 
 .resto-list__underline {
-    width: 60wh;
+    width: 60%;
     height: 1px;
     margin-left: 20px;
     margin-top: 2px;
     background-color: rgb(223, 217, 217);
 }
+
 .resto-list {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    width: 60vw;
+    height: 700px;
+    border-radius: 15px;
     margin-top: 40px;
-}
+  }
 
 
 .resto-background {
@@ -44,4 +47,39 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+@media (max-width:960px) {
+    .resto-background {
+        width: 100vw;
+    }
+    .resto-list {
+        width: 80%;
+        
+    }
+}
+
+@media (max-width:760px) {
+    .resto-background {
+        width: 100vw;
+    }
+    .resto-list {
+        width: 90%;
+        
+    }
+}
+@media (max-width:650px) {
+
+    .resto-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .resto-background {
+        width: 100vw;
+    }
+    .resto-list {
+        width: 90%;
+        
+    }
 }

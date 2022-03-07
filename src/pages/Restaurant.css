@@ -152,19 +152,16 @@ border-bottom: 1px solid rgba(200, 200, 200, 0.609);
     width: 0px;
   }
   
-  /* Track */
   ::-webkit-scrollbar-track {
     background: rgb(223, 20, 20); 
     height: 80%;
 
   }
    
-  /* Handle */
   ::-webkit-scrollbar-thumb {
     background: rgb(102, 26, 173); 
   }
   
-  /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: rgb(91, 231, 11); 
   }
