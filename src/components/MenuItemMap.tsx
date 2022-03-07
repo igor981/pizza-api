@@ -1,6 +1,5 @@
-import  React, {useState, useEffect} from 'react'
+import  React, {useEffect} from 'react'
 import '../pages/Restaurant.css'
-import { MenuIf, MenuItem } from '../interfaces'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../redux/actions/cart.action'
 import { newMenu } from '../redux/actions/resto.action'
