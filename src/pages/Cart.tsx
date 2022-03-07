@@ -36,12 +36,7 @@ const Cart = () => {
         cart: userCart.cartItems,
         restuarantId: userCart.restuarantId
       }
-
       const order: any = await placeOrderService(JSON.stringify(total))
-
-      console.log(order);
-      
-
       if (order.status === 200){
         dispatch(placeOrder(order.data))
         dispatch(emptyCart())
